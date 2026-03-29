@@ -1,1 +1,56 @@
-<p>navbar works!</p>
+<nav class="fixed top-0 w-full z-50 bg-espresso shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a routerLink="/" class="flex items-center gap-2">
+      <span class="font-display text-2xl font-black text-gold tracking-widest">DEL</span>
+      <span class="font-display text-2xl text-cream italic font-normal">coffee</span>
+    </a>
+
+    <!-- Desktop Links -->
+    <ul class="hidden md:flex items-center gap-8">
+      <li><a routerLink="/"         routerLinkActive="text-gold" [routerLinkActiveOptions]="{exact:true}" class="text-cream hover:text-gold transition-colors duration-200 font-medium">Home</a></li>
+      <li><a routerLink="/shop"     routerLinkActive="text-gold" class="text-cream hover:text-gold transition-colors duration-200 font-medium">Shop</a></li>
+      <li><a routerLink="/events"   routerLinkActive="text-gold" class="text-cream hover:text-gold transition-colors duration-200 font-medium">Events</a></li>
+      <li><a routerLink="/location" routerLinkActive="text-gold" class="text-cream hover:text-gold transition-colors duration-200 font-medium">Location</a></li>
+      <li><a routerLink="/partners" routerLinkActive="text-gold" class="text-cream hover:text-gold transition-colors duration-200 font-medium">Partners</a></li>
+      <li><a routerLink="/contacts" routerLinkActive="text-gold" class="text-cream hover:text-gold transition-colors duration-200 font-medium">Contact</a></li>
+    </ul>
+
+    <!-- CTA Button -->
+    <a href="https://wa.me/250788770567" target="_blank"
+       class="hidden md:block bg-gold text-espresso font-semibold px-5 py-2 rounded-full hover:bg-caramel transition-colors duration-200">
+      Order Now ☕
+    </a>
+
+    <!-- Mobile Hamburger -->
+    <button (click)="toggleMenu()" class="md:hidden text-cream focus:outline-none">
+      @if (!menuOpen) {
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      }
+      @if (menuOpen) {
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      }
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (menuOpen) {
+    <div class="md:hidden bg-roast px-6 pb-6 flex flex-col gap-4">
+      <a routerLink="/"         (click)="toggleMenu()" class="text-cream hover:text-gold font-medium">Home</a>
+      <a routerLink="/shop"     (click)="toggleMenu()" class="text-cream hover:text-gold font-medium">Shop</a>
+      <a routerLink="/events"   (click)="toggleMenu()" class="text-cream hover:text-gold font-medium">Events</a>
+      <a routerLink="/location" (click)="toggleMenu()" class="text-cream hover:text-gold font-medium">Location</a>
+      <a routerLink="/partners" (click)="toggleMenu()" class="text-cream hover:text-gold font-medium">Partners</a>
+      <a routerLink="/contacts" (click)="toggleMenu()" class="text-cream hover:text-gold font-medium">Contact</a>
+      <a href="https://wa.me/250788770567" target="_blank"
+         class="bg-gold text-espresso font-semibold px-5 py-2 rounded-full text-center hover:bg-caramel transition-colors duration-200">
+        Order Now ☕
+      </a>
+    </div>
+  }
+</nav>

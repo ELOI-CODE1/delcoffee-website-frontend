@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { ShopComponent } from './pages/shop/shop.component';
-import { EventsComponent } from './pages/events/events.component';
-import { LocationComponent } from './pages/location/location.component';
-import { PartnersComponent } from './pages/partners/partners.component';
-import { ContactComponent } from './pages/contact/contact.component';
+import { Home } from './pages/home/home';
+import { Shop } from './pages/shop/shop';
+import { Events } from './pages/events/events';
+import { Location } from './pages/location/location';
+import { Partners } from './pages/partners/partners';
+import { Contacts } from './pages/contacts/contacts';
 
 export const routes: Routes = [
-  { path: '',        component: HomeComponent },
-  { path: 'shop',     component: ShopComponent },
-  { path: 'events',   component: EventsComponent },
-  { path: 'location', component: LocationComponent },
-  { path: 'partners', component: PartnersComponent },
-  { path: 'contact',  component: ContactComponent },
+  { path: '',         component: Home },
+  { path: 'shop',     component: Shop },
+  { path: 'events',   component: Events },
+  { path: 'location', component: Location },
+  { path: 'partners', component: Partners },
+  { path: 'contacts', component: Contacts },
   { path: '**',       redirectTo: '' }
 ];

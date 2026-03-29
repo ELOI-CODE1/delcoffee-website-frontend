@@ -1,1 +1,85 @@
-<p>partners works!</p>
+<!-- Header -->
+<section class="bg-espresso pt-32 pb-16">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="text-gold font-medium tracking-widest uppercase text-sm mb-3">🤝 Collaboration</p>
+    <h1 class="font-display text-5xl font-black text-cream mb-4">Our Partners</h1>
+    <p class="text-muted text-lg max-w-xl mx-auto">
+      We believe in the power of collaboration. Together with our partners,
+      we are building a stronger coffee culture in Rwanda.
+    </p>
+  </div>
+</section>
+
+<!-- Partners Grid -->
+<section class="bg-milk py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (partner of partners; track partner.name) {
+        <div class="bg-cream rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 p-8 text-center">
+          <div class="text-6xl mb-4">{{ partner.emoji }}</div>
+          <span class="bg-espresso text-cream text-xs font-bold px-3 py-1 rounded-full">
+            {{ partner.category }}
+          </span>
+          <h3 class="font-display text-xl font-bold text-espresso mt-4 mb-3">{{ partner.name }}</h3>
+          <p class="text-muted text-sm leading-relaxed">{{ partner.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Become a Partner -->
+<section class="bg-roast py-20">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="text-gold font-medium tracking-widest uppercase text-sm mb-3">Join Us</p>
+      <h2 class="font-display text-4xl font-bold text-cream mb-4">Become a DEL COFFEE Partner</h2>
+      <p class="text-muted text-lg leading-relaxed mb-6">
+        Are you a café, restaurant, hotel, or business in Kigali looking to
+        serve premium Rwandan coffee? Let's work together to bring the best
+        coffee experience to your customers.
+      </p>
+      <ul class="flex flex-col gap-3 mb-8">
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold text-xl">✓</span> Premium freshly roasted beans
+        </li>
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold text-xl">✓</span> Barista training for your staff
+        </li>
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold text-xl">✓</span> Reliable delivery across Kigali
+        </li>
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold text-xl">✓</span> Event catering services
+        </li>
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold text-xl">✓</span> Dedicated support & partnership
+        </li>
+      </ul>
+      <button (click)="becomePartner()"
+        class="bg-gold text-espresso font-bold px-8 py-3 rounded-full hover:bg-caramel transition-colors duration-200">
+        📱 Get in Touch
+      </button>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 gap-6">
+      <div class="bg-espresso rounded-2xl p-8 text-center">
+        <p class="font-display text-5xl font-black text-gold mb-2">100%</p>
+        <p class="text-cream text-sm">Rwandan Arabica</p>
+      </div>
+      <div class="bg-espresso rounded-2xl p-8 text-center">
+        <p class="font-display text-5xl font-black text-gold mb-2">24h</p>
+        <p class="text-cream text-sm">Fresh Roasting</p>
+      </div>
+      <div class="bg-espresso rounded-2xl p-8 text-center">
+        <p class="font-display text-5xl font-black text-gold mb-2">🇷🇼</p>
+        <p class="text-cream text-sm">Based in Kigali</p>
+      </div>
+      <div class="bg-espresso rounded-2xl p-8 text-center">
+        <p class="font-display text-5xl font-black text-gold mb-2">★★★★★</p>
+        <p class="text-cream text-sm">Quality Guaranteed</p>
+      </div>
+    </div>
+  </div>
+</section>

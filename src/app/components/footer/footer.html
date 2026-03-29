@@ -1,1 +1,102 @@
-<p>footer works!</p>
+<footer class="bg-espresso border-t border-roast">
+
+  <!-- Main Footer -->
+  <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+
+    <!-- Brand -->
+    <div class="md:col-span-1">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="font-display text-2xl font-black text-gold tracking-widest">DEL</span>
+        <span class="font-display text-2xl text-cream italic font-normal">coffee</span>
+      </div>
+      <p class="text-muted text-sm leading-relaxed mb-6">
+        Freshly roasted Rwandan Arabica coffee beans. Based in Kigali, Rwanda.
+        Delivering quality coffee one cup at a time.
+      </p>
+      <div class="flex gap-4">
+        <a href="https://instagram.com/delcoffee_rwanda" target="_blank"
+           class="bg-roast text-cream w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold hover:text-espresso transition-colors duration-200">
+          
+        </a>
+        <a href="https://wa.me/250788770567" target="_blank"
+           class="bg-roast text-cream w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold hover:text-espresso transition-colors duration-200">
+          
+        </a>
+        <a href="mailto:delcoffeerwanda@gmail.com"
+           class="bg-roast text-cream w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold hover:text-espresso transition-colors duration-200">
+          
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 class="font-display text-lg font-bold text-gold mb-4">Quick Links</h4>
+      <ul class="flex flex-col gap-3">
+        <li><a routerLink="/"         class="text-muted hover:text-cream transition-colors duration-200 text-sm">Home</a></li>
+        <li><a routerLink="/shop"     class="text-muted hover:text-cream transition-colors duration-200 text-sm">Shop</a></li>
+        <li><a routerLink="/events"   class="text-muted hover:text-cream transition-colors duration-200 text-sm">Events</a></li>
+        <li><a routerLink="/location" class="text-muted hover:text-cream transition-colors duration-200 text-sm">Location</a></li>
+        <li><a routerLink="/partners" class="text-muted hover:text-cream transition-colors duration-200 text-sm">Partners</a></li>
+        <li><a routerLink="/contacts" class="text-muted hover:text-cream transition-colors duration-200 text-sm">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <h4 class="font-display text-lg font-bold text-gold mb-4">Services</h4>
+      <ul class="flex flex-col gap-3">
+        <li class="text-muted text-sm"> Freshly Roasted Beans</li>
+        <li class="text-muted text-sm"> 1kg & ½kg Bags</li>
+        <li class="text-muted text-sm"> Barista Training</li>
+        <li class="text-muted text-sm"> Event Catering</li>
+        <li class="text-muted text-sm"> Kigali Delivery</li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h4 class="font-display text-lg font-bold text-gold mb-4">Contact</h4>
+      <ul class="flex flex-col gap-3">
+        <li>
+          <a href="https://wa.me/250788770567" target="_blank"
+             class="text-muted hover:text-cream transition-colors duration-200 text-sm">
+             0788770567
+          </a>
+        </li>
+        <li>
+          <a href="mailto:delcoffeerwanda@gmail.com"
+             class="text-muted hover:text-cream transition-colors duration-200 text-sm">
+             delcoffeerwanda&#64;gmail.com
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/delcoffee_rwanda" target="_blank"
+             class="text-muted hover:text-cream transition-colors duration-200 text-sm">
+             &#64;delcoffee_rwanda
+          </a>
+        </li>
+        <li class="text-muted text-sm"> Kigali, Rwanda</li>
+      </ul>
+
+      <!-- Order CTA -->
+      <a href="https://wa.me/250788770567" target="_blank"
+         class="inline-block mt-6 bg-gold text-espresso font-bold px-6 py-2 rounded-full hover:bg-caramel transition-colors duration-200 text-sm">
+        Order Now 
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-roast py-6 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-muted text-sm text-center">
+        © {{ currentYear }} DEL COFFEE Rwanda. All rights reserved.
+      </p>
+      <p class="text-muted text-sm text-center">
+        Made with  in Kigali, Rwanda 🇷🇼
+      </p>
+    </div>
+  </div>
+
+</footer>
