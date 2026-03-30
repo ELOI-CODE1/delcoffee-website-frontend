@@ -1,9 +1,9 @@
 <!-- Header -->
 <section class="bg-espresso pt-32 pb-16">
   <div class="max-w-7xl mx-auto px-6 text-center">
-    <p class="text-gold font-medium tracking-widest uppercase text-sm mb-3">🤝 Collaboration</p>
+    <p class="text-gold font-medium tracking-widest uppercase text-sm mb-3">Collaboration</p>
     <h1 class="font-display text-5xl font-black text-cream mb-4">Our Partners</h1>
-    <p class="text-muted text-lg max-w-xl mx-auto">
+    <p class="text-cream text-lg max-w-xl mx-auto">
       We believe in the power of collaboration. Together with our partners,
       we are building a stronger coffee culture in Rwanda.
     </p>
@@ -16,7 +16,9 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       @for (partner of partners; track partner.name) {
         <div class="bg-cream rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 p-8 text-center">
-          <div class="text-6xl mb-4">{{ partner.emoji }}</div>
+          <div class="bg-roast w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+  <span class="text-gold font-bold text-xs text-center">{{ partner.category }}</span>
+</div>
           <span class="bg-espresso text-cream text-xs font-bold px-3 py-1 rounded-full">
             {{ partner.category }}
           </span>
@@ -34,7 +36,7 @@
     <div>
       <p class="text-gold font-medium tracking-widest uppercase text-sm mb-3">Join Us</p>
       <h2 class="font-display text-4xl font-bold text-cream mb-4">Become a DEL COFFEE Partner</h2>
-      <p class="text-muted text-lg leading-relaxed mb-6">
+      <p class="text-cream text-lg leading-relaxed mb-6">
         Are you a café, restaurant, hotel, or business in Kigali looking to
         serve premium Rwandan coffee? Let's work together to bring the best
         coffee experience to your customers.
@@ -58,7 +60,7 @@
       </ul>
       <button (click)="becomePartner()"
         class="bg-gold text-espresso font-bold px-8 py-3 rounded-full hover:bg-caramel transition-colors duration-200">
-        📱 Get in Touch
+        Get in Touch
       </button>
     </div>
 

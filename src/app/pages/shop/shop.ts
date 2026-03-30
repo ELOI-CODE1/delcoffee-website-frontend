@@ -14,28 +14,28 @@ export class Shop {
       name: 'Rwanda Bourbon - 1kg',
       description: 'Our signature single-origin Rwanda Bourbon, freshly roasted to perfection. Rich, full-bodied with notes of dark chocolate and berries.',
       weight: '1kg',
-      emoji: '☕',
+      image: 'images/2.PNG',
       badge: 'Best Seller'
     },
     {
-      name: 'Rwanda Bourbon - ½kg',
+      name: 'Rwanda Bourbon - half kg',
       description: 'The same premium Rwanda Bourbon in a smaller bag. Perfect for home brewing and coffee enthusiasts.',
-      weight: '½kg',
-      emoji: '🫘',
+      weight: 'half kg',
+      image: 'images/2.PNG',
       badge: 'Popular'
     },
     {
       name: 'Arabica Blend - 1kg',
       description: 'A carefully crafted blend of Rwanda\'s finest Arabica beans. Smooth, balanced with a sweet caramel finish.',
       weight: '1kg',
-      emoji: '✨',
+      image: 'images/2.PNG',
       badge: 'New'
     },
     {
-      name: 'Arabica Blend - ½kg',
-      description: 'Our premium Arabica blend in a ½kg bag. Great for gifting or trying something new.',
-      weight: '½kg',
-      emoji: '🎁',
+      name: 'Arabica Blend - half kg',
+      description: 'Our premium Arabica blend in a half kg bag. Great for gifting or trying something new.',
+      weight: 'half kg',
+      image: 'images/2.PNG',
       badge: 'Gift Idea'
     }
   ];

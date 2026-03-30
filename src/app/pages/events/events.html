@@ -1,66 +1,192 @@
 <!-- Header -->
-<section class="bg-espresso pt-32 pb-16">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <p class="text-gold font-medium tracking-widest uppercase text-sm mb-3">📅 What's On</p>
+<section class="min-h-64 flex items-center justify-center relative overflow-hidden pt-32 pb-16"
+  style="background-image: url('images/1.PNG'); background-size: cover; background-position: center;">
+  <div class="absolute inset-0 bg-espresso bg-opacity-85"></div>
+  <div class="relative max-w-7xl mx-auto px-6 text-center">
+    <p class="text-gold font-medium tracking-widest uppercase text-sm mb-3">What We Do</p>
     <h1 class="font-display text-5xl font-black text-cream mb-4">Events</h1>
-    <p class="text-muted text-lg max-w-xl mx-auto">
-      From coffee tastings to barista masterclasses and corporate catering —
-      stay up to date with everything DEL COFFEE has going on.
+    <p class="text-cream text-lg max-w-xl mx-auto">
+      From weddings to corporate gatherings, DEL COFFEE brings premium
+      Rwandan coffee experience to your special moments.
     </p>
   </div>
 </section>
 
-<!-- Events List -->
+<!-- Past Events -->
 <section class="bg-milk py-20">
-  <div class="max-w-5xl mx-auto px-6">
-    <div class="flex flex-col gap-8">
-      @for (event of events; track event.title) {
-        <div class="bg-cream rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col md:flex-row">
-          <!-- Left color block -->
-          <div class="bg-roast md:w-48 h-32 md:h-auto flex items-center justify-center flex-shrink-0">
-            <span class="text-7xl">{{ event.emoji }}</span>
-          </div>
-          <!-- Content -->
-          <div class="p-6 flex flex-col justify-between flex-1">
-            <div>
-              <div class="flex items-center gap-3 mb-2">
-                <span class="bg-gold text-espresso text-xs font-bold px-3 py-1 rounded-full">{{ event.type }}</span>
-                <span class="text-muted text-sm">{{ event.date }}</span>
-              </div>
-              <h3 class="font-display text-2xl font-bold text-espresso mb-2">{{ event.title }}</h3>
-              <p class="text-muted text-sm leading-relaxed mb-4">{{ event.description }}</p>
-              <div class="flex flex-wrap gap-4 text-sm text-muted">
-                <span>🕐 {{ event.time }}</span>
-                <span>📍 {{ event.location }}</span>
-              </div>
-            </div>
-            <div class="mt-6">
-              <button
-                (click)="bookEvent(event.title)"
-                class="bg-espresso text-cream font-semibold px-6 py-2 rounded-full hover:bg-roast transition-colors duration-200">
-                📱 Book via WhatsApp
-              </button>
-            </div>
-          </div>
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="font-display text-4xl font-bold text-espresso text-center mb-4">Our Work</h2>
+    <p class="text-muted text-center mb-12">Events we have had the pleasure of serving.</p>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-cream rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+        <div class="h-72 overflow-hidden">
+          <img src="images/3.PNG" alt="Wedding coffee catering at Mez Park Kigali" class="w-full h-full object-contain bg-roast"/>
         </div>
-      }
+        <div class="p-8">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-gold text-espresso text-xs font-bold px-3 py-1 rounded-full">Wedding Catering</span>
+            <span class="text-muted text-sm">February 7, 2026</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-espresso mb-3">Wedding at Mez Park, Kigali</h3>
+          <p class="text-muted leading-relaxed">
+            DEL COFFEE had the honor of providing premium coffee catering at a beautiful
+            wedding held at Mez Park in Kigali. Guests enjoyed freshly brewed Rwandan
+            Arabica coffee throughout the celebration, making every moment more special.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Host Your Event -->
+<!-- Past Events -->
+<section class="bg-milk py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="font-display text-4xl font-bold text-espresso text-center mb-4">Our Work</h2>
+    <p class="text-muted text-center mb-12">Events we have had the pleasure of serving.</p>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-cream rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+        <div class="h-72 overflow-hidden">
+          <img src="images/3.PNG" alt="Wedding coffee catering at Mez Park Kigali" class="w-full h-full object-contain bg-roast"/>
+        </div>
+        <div class="p-8">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-gold text-espresso text-xs font-bold px-3 py-1 rounded-full">Wedding Catering</span>
+            <span class="text-muted text-sm">February 7, 2026</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-espresso mb-3">Wedding at Mez Park, Kigali</h3>
+          <p class="text-muted leading-relaxed mb-6">
+            DEL COFFEE had the honor of providing premium coffee catering at a beautiful
+            wedding held at Mez Park in Kigali. Guests enjoyed freshly brewed Rwandan
+            Arabica coffee throughout the celebration, making every moment more special.
+          </p>
+          <!-- View Gallery Button -->
+          <button (click)="openGallery()"
+            class="bg-espresso text-cream font-semibold px-6 py-2 rounded-full hover:bg-roast transition-colors duration-200">
+            View Event Photos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Modal -->
+@if (galleryOpen) {
+  <div class="fixed inset-0 z-50 bg-espresso bg-opacity-95 overflow-y-auto p-6">
+    <div class="max-w-5xl mx-auto">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="font-display text-2xl font-bold text-cream">Wedding at Mez Park — Photos</h3>
+        <button (click)="closeGallery()"
+          class="bg-gold text-espresso font-bold w-10 h-10 rounded-full flex items-center justify-center hover:bg-caramel transition-colors duration-200 text-xl">
+          x
+        </button>
+      </div>
+      <!-- Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        @for (item of gallery; track item.image) {
+          <div (click)="openImage(item.image)"
+            class="relative h-48 md:h-64 rounded-2xl overflow-hidden cursor-pointer group">
+            <img [src]="item.image" [alt]="item.caption" class="w-full h-full object-contain bg-roast"/>
+            <div class="absolute inset-0 bg-espresso bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
+              <p class="text-cream text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-4">
+                {{ item.caption }}
+              </p>
+            </div>
+            <div class="absolute top-3 right-3 bg-gold text-espresso text-xs font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              View
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}
+
+<!-- Lightbox -->
+@if (selectedImage) {
+  <div class="fixed inset-0 z-50 bg-espresso bg-opacity-95 flex items-center justify-center p-4"
+    (click)="closeImage()">
+    <div class="relative max-w-4xl w-full" (click)="$event.stopPropagation()">
+      <img [src]="selectedImage" alt="Event photo" class="w-full max-h-screen object-contain rounded-2xl"/>
+      <button (click)="closeImage()"
+        class="absolute top-4 right-4 bg-gold text-espresso font-bold w-10 h-10 rounded-full flex items-center justify-center hover:bg-caramel transition-colors duration-200 text-xl">
+        x
+      </button>
+    </div>
+  </div>
+}
+
+<!-- Lightbox -->
+@if (selectedImage) {
+  <div
+    class="fixed inset-0 z-50 bg-espresso bg-opacity-95 flex items-center justify-center p-4"
+    (click)="closeImage()">
+    <div class="relative max-w-4xl w-full" (click)="$event.stopPropagation()">
+      <img [src]="selectedImage" alt="Event photo" class="w-full max-h-screen object-contain rounded-2xl"/>
+      <button
+        (click)="closeImage()"
+        class="absolute top-4 right-4 bg-gold text-espresso font-bold w-10 h-10 rounded-full flex items-center justify-center hover:bg-caramel transition-colors duration-200 text-xl">
+        x
+      </button>
+    </div>
+  </div>
+}
+
+<!-- Upcoming Events -->
 <section class="bg-roast py-20">
   <div class="max-w-3xl mx-auto px-6 text-center">
-    <div class="text-5xl mb-4">🎪</div>
-    <h2 class="font-display text-3xl font-bold text-cream mb-4">Host Your Event with DEL COFFEE</h2>
-    <p class="text-muted text-lg mb-8">
-      Looking for premium coffee catering for your wedding, corporate event, or private gathering?
-      We bring the full DEL COFFEE experience to your venue.
+    <h2 class="font-display text-4xl font-bold text-cream mb-4">Upcoming Events</h2>
+    <p class="text-cream text-lg mb-8">
+      No upcoming events at the moment. Follow us on Instagram to stay updated
+      on our next events and activations across Kigali.
     </p>
-    <a href="https://wa.me/250788770567?text=Hello%20DEL%20COFFEE!%20I'd%20like%20to%20book%20coffee%20catering%20for%20my%20event."
-       target="_blank"
+    <a href="https://instagram.com/delcoffee_rwanda" target="_blank"
        class="bg-gold text-espresso font-bold px-8 py-3 rounded-full hover:bg-caramel transition-colors duration-200">
-      Get in Touch
+      Follow on Instagram
     </a>
+  </div>
+</section>
+
+<!-- Book Us -->
+<section class="bg-espresso py-20">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="text-gold font-medium tracking-widest uppercase text-sm mb-3">Work With Us</p>
+      <h2 class="font-display text-4xl font-bold text-cream mb-4">Book DEL COFFEE for Your Event</h2>
+      <p class="text-cream text-lg leading-relaxed mb-6">
+        Planning a wedding, corporate event, private party, or any special occasion?
+        DEL COFFEE provides premium coffee catering services across Kigali.
+        Let us make your event unforgettable.
+      </p>
+      <ul class="flex flex-col gap-3 mb-8">
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold font-bold">✓</span> Weddings
+        </li>
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold font-bold">✓</span> Corporate Events
+        </li>
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold font-bold">✓</span> Private Parties
+        </li>
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold font-bold">✓</span> Conferences and Seminars
+        </li>
+        <li class="flex items-center gap-3 text-cream">
+          <span class="text-gold font-bold">✓</span> Barista Training Sessions
+        </li>
+      </ul>
+      <button (click)="bookEvent()"
+        class="bg-gold text-espresso font-bold px-8 py-3 rounded-full hover:bg-caramel transition-colors duration-200">
+        Book via WhatsApp
+      </button>
+    </div>
+
+    <div class="rounded-2xl overflow-hidden shadow-xl h-96">
+      <img src="images/2.PNG" alt="DEL COFFEE event catering" class="w-full h-full object-contain bg-roast"/>
+    </div>
   </div>
 </section>

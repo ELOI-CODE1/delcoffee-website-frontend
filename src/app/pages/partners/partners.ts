@@ -10,46 +10,25 @@ import { CommonModule } from '@angular/common';
 })
 export class Partners {
   partners = [
-    {
-      name: 'Rwanda Agriculture Board',
-      description: 'Supporting Rwandan farmers and promoting high-quality agricultural products including our premium Arabica beans.',
-      emoji: '🌱',
-      category: 'Agriculture'
-    },
-    {
-      name: 'Kigali Coffee Farmers',
-      description: 'A cooperative of dedicated coffee farmers who supply DEL COFFEE with the finest handpicked Arabica beans.',
-      emoji: '🫘',
-      category: 'Farming'
-    },
-    {
-      name: 'Rwanda Events Network',
-      description: 'Our event catering partner helping us bring premium coffee experiences to events across Kigali and beyond.',
-      emoji: '🎪',
-      category: 'Events'
-    },
-    {
-      name: 'Kigali Hospitality Group',
-      description: 'Partnering with leading hotels and restaurants in Kigali to serve DEL COFFEE\'s premium roasts.',
-      emoji: '🏨',
-      category: 'Hospitality'
-    },
-    {
-      name: 'Rwanda Barista Academy',
-      description: 'Collaborating to provide world-class barista training and certification programs in Rwanda.',
-      emoji: '🎓',
-      category: 'Training'
-    },
-    {
-      name: 'Kigali Delivery Network',
-      description: 'Our trusted delivery partner ensuring your freshly roasted coffee arrives quickly and safely across Kigali.',
-      emoji: '🚚',
-      category: 'Logistics'
-    }
+    { name: 'Touch Africa Apart Hotel', description: 'A premium apart hotel in Kigali served with DEL COFFEE freshly roasted Rwandan Arabica beans.', category: 'Hospitality', website: 'touchafrica.rw' },
+    { name: '2000 Hotel', description: 'A trusted hotel partner in Kigali enjoying the rich flavors of DEL COFFEE premium roasts.', category: 'Hotel', website: '2000hotel.rw' },
+    { name: 'Legend Hotel', description: 'One of Kigali\'s distinguished hotels proudly serving DEL COFFEE to their valued guests.', category: 'Hotel', website: 'legendhotel.co.rw' },
+    { name: 'Oasis Apart Hotel', description: 'A comfortable apart hotel in Kigali partnered with DEL COFFEE for premium coffee service.', category: 'Hospitality', website: 'oasisaparthotel.rw' },
+    { name: 'Kigali Paramount Hotel', description: 'A top hotel in Kigali offering guests the finest DEL COFFEE Rwandan Arabica experience.', category: 'Hotel', website: 'kigaliparamount.rw' },
+    { name: 'Pele Hotel', description: 'A valued DEL COFFEE partner serving freshly roasted Rwandan coffee to their guests.', category: 'Hotel', website: 'pelehotel.rw' },
+    { name: 'Montana Vista Hotel', description: 'A beautiful hotel in Kigali with stunning views, proudly serving DEL COFFEE premium beans.', category: 'Hotel', website: 'montanavista.rw' },
+    { name: 'Terressa Coffee Houses', description: 'A coffee house partner sharing our passion for quality Rwandan coffee with their customers.', category: 'Coffee House', website: 'terressacoffee.rw' },
+    { name: 'Murugano Village Hotel', description: 'A unique village hotel experience in Kigali complemented by DEL COFFEE premium roasts.', category: 'Hotel', website: 'muruganovillage.rw' },
+    { name: 'Amora Apart Hotel', description: 'A modern apart hotel in Kigali partnered with DEL COFFEE for an exceptional coffee experience.', category: 'Hospitality', website: 'amoraaparthotel.rw' },
+    { name: 'Yummyverse Coffee & Treats', description: 'A delightful coffee and treats partner sharing DEL COFFEE\'s passion for premium Rwandan Arabica with their customers.', category: 'Coffee & Treats', website: 'yummyverse.rw' },
   ];
 
+  getInitials(name: string): string {
+    return name.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase();
+  }
+
   becomePartner() {
-    const message = `Hello DEL COFFEE! I'm interested in becoming a partner.`;
+    const message = `Hello DEL COFFEE! I am interested in becoming a partner.`;
     const url = `https://wa.me/250788770567?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   }
