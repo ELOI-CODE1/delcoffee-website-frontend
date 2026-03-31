@@ -29,7 +29,7 @@ export class Partners {
 
   becomePartner() {
     const message = `Hello DEL COFFEE! I am interested in becoming a partner.`;
-    const url = `https://wa.me/250788770567?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/250793856560?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   }
 }

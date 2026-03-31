@@ -9,13 +9,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './events.css'
 })
 export class Events {
-  selectedImage: string | null = null;
+  selectedFile: string | null = null;
+  selectedType: string | null = null;
   galleryOpen = false;
 
   gallery = [
-    { image: 'images/1.PNG', caption: 'Wedding at Mez Park, Kigali' },
-    { image: 'images/2.PNG', caption: 'Coffee setup at the event' },
-    { image: 'images/3.PNG', caption: 'Freshly brewed coffee for guests' },
+    { file: 'images/vid1.MP4', type: 'video', caption: 'Coffee setup at the event' },
+    { file: 'images/vid2.MP4', type: 'video', caption: 'Coffee setup at the event' },
+    { file: 'images/vid3.MP4', type: 'video', caption: 'Our product being used to serve.' },
+    { file: 'images/vid4.MP4', type: 'video', caption: 'Wedding at Mez Park, Kigali' },
   ];
 
   openGallery() {
@@ -24,20 +26,27 @@ export class Events {
 
   closeGallery() {
     this.galleryOpen = false;
-    this.selectedImage = null;
+    this.selectedFile = null;
+    this.selectedType = null;
   }
 
-  openImage(image: string) {
-    this.selectedImage = image;
+  openFile(file: string, type: string) {
+    this.selectedFile = file;
+    this.selectedType = type;
   }
 
-  closeImage() {
-    this.selectedImage = null;
+  closeFile() {
+    this.selectedFile = null;
+    this.selectedType = null;
+  }
+
+  isVideo(file: string): boolean {
+    return file.toLowerCase().endsWith('.mp4') || file.toLowerCase().endsWith('.mov');
   }
 
   bookEvent() {
     const message = `Hello DEL COFFEE! I would like to book you for my event.`;
-    const url = `https://wa.me/250788770567?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/250793856560?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   }
 }

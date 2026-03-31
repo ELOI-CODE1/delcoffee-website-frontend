@@ -1,6 +1,6 @@
 <!-- Header -->
 <section class="min-h-64 flex items-center justify-center relative overflow-hidden pt-32 pb-16"
-  style="background-image: url('images/1.PNG'); background-size: cover; background-position: center;">
+  style="background-image: url('images/event_bg.jpg'); background-size: cover; background-position: center;">
   <div class="absolute inset-0 bg-espresso bg-opacity-85"></div>
   <div class="relative max-w-7xl mx-auto px-6 text-center">
     <p class="text-gold font-medium tracking-widest uppercase text-sm mb-3">What We Do</p>
@@ -29,43 +29,14 @@
             <span class="text-muted text-sm">February 7, 2026</span>
           </div>
           <h3 class="font-display text-2xl font-bold text-espresso mb-3">Wedding at Mez Park, Kigali</h3>
-          <p class="text-muted leading-relaxed">
-            DEL COFFEE had the honor of providing premium coffee catering at a beautiful
-            wedding held at Mez Park in Kigali. Guests enjoyed freshly brewed Rwandan
-            Arabica coffee throughout the celebration, making every moment more special.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Past Events -->
-<section class="bg-milk py-20">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="font-display text-4xl font-bold text-espresso text-center mb-4">Our Work</h2>
-    <p class="text-muted text-center mb-12">Events we have had the pleasure of serving.</p>
-
-    <div class="max-w-3xl mx-auto">
-      <div class="bg-cream rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-        <div class="h-72 overflow-hidden">
-          <img src="images/3.PNG" alt="Wedding coffee catering at Mez Park Kigali" class="w-full h-full object-contain bg-roast"/>
-        </div>
-        <div class="p-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="bg-gold text-espresso text-xs font-bold px-3 py-1 rounded-full">Wedding Catering</span>
-            <span class="text-muted text-sm">February 7, 2026</span>
-          </div>
-          <h3 class="font-display text-2xl font-bold text-espresso mb-3">Wedding at Mez Park, Kigali</h3>
           <p class="text-muted leading-relaxed mb-6">
             DEL COFFEE had the honor of providing premium coffee catering at a beautiful
             wedding held at Mez Park in Kigali. Guests enjoyed freshly brewed Rwandan
             Arabica coffee throughout the celebration, making every moment more special.
           </p>
-          <!-- View Gallery Button -->
           <button (click)="openGallery()"
             class="bg-espresso text-cream font-semibold px-6 py-2 rounded-full hover:bg-roast transition-colors duration-200">
-            View Event Photos
+            View Event Photos & Videos
           </button>
         </div>
       </div>
@@ -77,27 +48,31 @@
 @if (galleryOpen) {
   <div class="fixed inset-0 z-50 bg-espresso bg-opacity-95 overflow-y-auto p-6">
     <div class="max-w-5xl mx-auto">
-      <!-- Modal Header -->
       <div class="flex items-center justify-between mb-6">
-        <h3 class="font-display text-2xl font-bold text-cream">Wedding at Mez Park — Photos</h3>
+        <h3 class="font-display text-2xl font-bold text-cream">Wedding at Mez Park — Photos & Videos</h3>
         <button (click)="closeGallery()"
           class="bg-gold text-espresso font-bold w-10 h-10 rounded-full flex items-center justify-center hover:bg-caramel transition-colors duration-200 text-xl">
           x
         </button>
       </div>
-      <!-- Grid -->
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        @for (item of gallery; track item.image) {
-          <div (click)="openImage(item.image)"
-            class="relative h-48 md:h-64 rounded-2xl overflow-hidden cursor-pointer group">
-            <img [src]="item.image" [alt]="item.caption" class="w-full h-full object-contain bg-roast"/>
-            <div class="absolute inset-0 bg-espresso bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
-              <p class="text-cream text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-4">
-                {{ item.caption }}
-              </p>
-            </div>
-            <div class="absolute top-3 right-3 bg-gold text-espresso text-xs font-bold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              View
+        @for (item of gallery; track item.file) {
+          <div (click)="openFile(item.file, item.type)"
+            class="relative h-48 md:h-64 rounded-2xl overflow-hidden cursor-pointer group bg-roast flex items-center justify-center">
+            @if (isVideo(item.file)) {
+              <video [src]="item.file" class="w-full h-full object-cover" muted></video>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-gold bg-opacity-90 rounded-full w-14 h-14 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-espresso" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            } @else {
+              <img [src]="item.file" [alt]="item.caption" class="w-full h-full object-cover"/>
+            }
+            <div class="absolute bottom-0 left-0 right-0 bg-espresso bg-opacity-70 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p class="text-cream text-xs text-center">{{ item.caption }}</p>
             </div>
           </div>
         }
@@ -107,28 +82,16 @@
 }
 
 <!-- Lightbox -->
-@if (selectedImage) {
+@if (selectedFile) {
   <div class="fixed inset-0 z-50 bg-espresso bg-opacity-95 flex items-center justify-center p-4"
-    (click)="closeImage()">
+    (click)="closeFile()">
     <div class="relative max-w-4xl w-full" (click)="$event.stopPropagation()">
-      <img [src]="selectedImage" alt="Event photo" class="w-full max-h-screen object-contain rounded-2xl"/>
-      <button (click)="closeImage()"
-        class="absolute top-4 right-4 bg-gold text-espresso font-bold w-10 h-10 rounded-full flex items-center justify-center hover:bg-caramel transition-colors duration-200 text-xl">
-        x
-      </button>
-    </div>
-  </div>
-}
-
-<!-- Lightbox -->
-@if (selectedImage) {
-  <div
-    class="fixed inset-0 z-50 bg-espresso bg-opacity-95 flex items-center justify-center p-4"
-    (click)="closeImage()">
-    <div class="relative max-w-4xl w-full" (click)="$event.stopPropagation()">
-      <img [src]="selectedImage" alt="Event photo" class="w-full max-h-screen object-contain rounded-2xl"/>
-      <button
-        (click)="closeImage()"
+      @if (isVideo(selectedFile)) {
+        <video [src]="selectedFile" class="w-full max-h-screen rounded-2xl" controls autoplay></video>
+      } @else {
+        <img [src]="selectedFile" alt="Event photo" class="w-full max-h-screen object-contain rounded-2xl"/>
+      }
+      <button (click)="closeFile()"
         class="absolute top-4 right-4 bg-gold text-espresso font-bold w-10 h-10 rounded-full flex items-center justify-center hover:bg-caramel transition-colors duration-200 text-xl">
         x
       </button>

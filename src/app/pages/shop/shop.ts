@@ -11,38 +11,38 @@ import { CommonModule } from '@angular/common';
 export class Shop {
   products = [
     {
-      name: 'Rwanda Bourbon - 1kg',
-      description: 'Our signature single-origin Rwanda Bourbon, freshly roasted to perfection. Rich, full-bodied with notes of dark chocolate and berries.',
+      name: 'Roasted coffee bean',
+      description: 'Whole Rwandan Arabica beans, freshly roasted to perfection. Grind them yourself for the freshest cup possible. Perfect for those who love full control over their brew.',
       weight: '1kg',
       image: 'images/2.PNG',
       badge: 'Best Seller'
     },
     {
-      name: 'Rwanda Bourbon - half kg',
-      description: 'The same premium Rwanda Bourbon in a smaller bag. Perfect for home brewing and coffee enthusiasts.',
+      name: 'Roasted Coffee Beans',
+      description: 'Whole Rwandan Arabica beans, freshly roasted to perfection. A small pack perfect for sampling or trying our coffee for the first time.',
       weight: 'half kg',
-      image: 'images/2.PNG',
+      image: 'images/4.jpg',
       badge: 'Popular'
     },
     {
-      name: 'Arabica Blend - 1kg',
-      description: 'A carefully crafted blend of Rwanda\'s finest Arabica beans. Smooth, balanced with a sweet caramel finish.',
+      name: 'Ground Coffee',
+      description: 'Freshly roasted Rwandan Arabica beans, finely ground and ready to brew. Simply add hot water and enjoy. Perfect for everyday home and office use.',
       weight: '1kg',
-      image: 'images/2.PNG',
+      image: 'images/3.PNG',
       badge: 'New'
     },
     {
-      name: 'Arabica Blend - half kg',
-      description: 'Our premium Arabica blend in a half kg bag. Great for gifting or trying something new.',
+      name: 'Ground Coffee',
+      description: 'Freshly roasted Rwandan Arabica beans, finely ground and ready to brew. A small pack ideal for a quick single serve or gifting.',
       weight: 'half kg',
-      image: 'images/2.PNG',
+      image: 'images/ground.jpg',
       badge: 'Gift Idea'
     }
   ];
 
   orderOnWhatsApp(productName: string) {
     const message = `Hello DEL COFFEE! I'd like to order: ${productName}`;
-    const url = `https://wa.me/250788770567?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/250793856560?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   }
 }

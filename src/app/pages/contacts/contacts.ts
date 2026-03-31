@@ -22,7 +22,7 @@ export class Contacts {
   sendMessage() {
     if (this.form.name && this.form.email && this.form.message) {
       const text = `Hello DEL COFFEE!%0A%0AName: ${this.form.name}%0AEmail: ${this.form.email}%0ASubject: ${this.form.subject}%0AMessage: ${this.form.message}`;
-      window.open(`https://wa.me/250788770567?text=${text}`, '_blank');
+      window.open(`https://wa.me/250792305044?text=${text}`, '_blank');
       this.submitted = true;
       this.form = { name: '', email: '', subject: '', message: '' };
     }
