@@ -46,7 +46,7 @@ export class Events {
 
   bookEvent() {
     const message = `Hello DEL COFFEE! I would like to book you for my event.`;
-    const url = `https://wa.me/250792305044?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/250793856560?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   }
 }

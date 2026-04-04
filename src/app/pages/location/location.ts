@@ -14,7 +14,7 @@ export class Location {
 
   openWhatsApp() {
     const message = `Hello DEL COFFEE! I'd like to know your exact location.`;
-    const url = `https://wa.me/250792305044?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/250793856560?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   }
 }
