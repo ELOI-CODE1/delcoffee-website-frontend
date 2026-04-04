@@ -15,9 +15,7 @@ export class Events {
 
   gallery = [
     { file: 'images/vid1.MP4', type: 'video', caption: 'Coffee setup at the event' },
-    { file: 'images/vid2.MP4', type: 'video', caption: 'Coffee setup at the event' },
-    { file: 'images/vid3.MP4', type: 'video', caption: 'Our product being used to serve.' },
-    { file: 'images/vid4.MP4', type: 'video', caption: 'Wedding at Mez Park, Kigali' },
+    { file: 'images/vid2.MP4', type: 'video', caption: 'Coffee setup at the event' }, 
   ];
 
   openGallery() {
