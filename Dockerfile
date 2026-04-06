@@ -1,21 +1,13 @@
-# Build stage
-FROM node:20-alpine AS builder
+# Stage 1 - Build the Angular app
+FROM node:20 AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run build --prod
 
-# Production stage only - use pre-built dist
-FROM node:20-alpine
-WORKDIR /app
-COPY dist ./dist
-COPY package*.json ./
-RUN npm install --omit=dev
-
-ENV PORT=4000
-ENV NODE_ENV=production
-
-EXPOSE 4000
-
-CMD ["node", "dist/frontend/server/server.mjs"]
+# Stage 2 - Serve with Nginx
+FROM nginx:alpine
+COPY --from=build /app/dist/frontend/browser /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
