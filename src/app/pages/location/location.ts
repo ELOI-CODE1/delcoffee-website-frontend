@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 })
 export class Location {
   openMaps() {
-    window.open('https://maps.google.com/?q=Kigali,Rwanda', '_blank');
-  }
+  window.open('https://maps.app.goo.gl/uHzxJ95geyABNy2z8', '_blank');
+}
 
   openWhatsApp() {
     const message = `Hello DEL COFFEE! I'd like to know your exact location.`;
